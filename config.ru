@@ -8,8 +8,11 @@ require 'resque/scheduler'
 require 'resque/scheduler/server'
 require 'yaml'
 
-# Disable Rack::Protection that might block requests from load balancers
+# Disable host authorization (Sinatra 4.x security feature)
+# Required for ALB/ingress where Host header may not match container hostname
 Resque::Server.set :protection, false
+Resque::Server.set :bind, '0.0.0.0'
+Resque::Server.set :host_authorization, permitted_hosts: :all
 
 # Build Redis connection options
 redis_options = {
