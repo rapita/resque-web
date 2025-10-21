@@ -2,11 +2,6 @@ require "bundler/setup"
 Bundler.require(:default)
 require 'sinatra'
 require 'resque/server'
-require 'resque/status_server'
-require 'resque/lock_server'
-require 'resque/scheduler'
-require 'resque/scheduler/server'
-require 'yaml'
 
 # Allow all hosts (required for ALB/ingress where Host header varies)
 # Empty array disables Sinatra 4.x host authorization (CVE-2024-21510 mitigation)
