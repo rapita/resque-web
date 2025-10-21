@@ -2,7 +2,7 @@
 
 Docker container for [Resque](https://github.com/resque/resque) web UI with Redis/Valkey TLS and password support.
 
-> **Note:** This repository is unmaintained and exists only to support legacy projects that require TLS and password authentication features not available in the official Resque Web distributions.
+> **Note:** This repository is unmaintained and exists only to support legacy projects that require TLS and password authentication features not available in alternative Docker solutions.
 
 ## Quick Start
 
