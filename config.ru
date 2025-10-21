@@ -8,6 +8,9 @@ require 'resque/scheduler'
 require 'resque/scheduler/server'
 require 'yaml'
 
+# Disable Rack::Protection that might block requests from load balancers
+Resque::Server.set :protection, false
+
 # Build Redis connection options
 redis_options = {
   host: ENV["REDIS_HOST"] || "127.0.0.1",
