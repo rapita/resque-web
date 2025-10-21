@@ -8,11 +8,9 @@ require 'resque/scheduler'
 require 'resque/scheduler/server'
 require 'yaml'
 
-# Disable host authorization (Sinatra 4.x security feature)
-# Required for ALB/ingress where Host header may not match container hostname
-Resque::Server.set :protection, false
-Resque::Server.set :bind, '0.0.0.0'
-Resque::Server.set :host_authorization, permitted_hosts: :all
+# Allow all hosts (required for ALB/ingress where Host header varies)
+# Empty array disables Sinatra 4.x host authorization (CVE-2024-21510 mitigation)
+Resque::Server.set :host_authorization, { permitted_hosts: [] }
 
 # Build Redis connection options
 redis_options = {
