@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'rake'
+gem 'rackup'
+gem 'webrick'
+gem 'sinatra'
+gem 'resque'
+gem 'resque-scheduler'
+gem 'resque-status'
+gem 'resque-cleaner'
+gem 'resque-lock', git: 'https://github.com/Shop2market/resque-lock.git'
